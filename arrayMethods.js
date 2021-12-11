@@ -61,9 +61,11 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-//  = populations.reduce(/* Provide Your Callback Here */)
+totalPopulation = populations.reduce(function(acc, curr) {
+    return acc + curr
+})
 
-
+console.log(totalPopulation)
 
 ////////// PROBLEM 4 //////////
 
@@ -87,9 +89,11 @@ const monstersInYourPocket = [{ "monster": "Bulbabunny", "CP": 156 }, { "monster
 */
 
 // CODE HERE
-// const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest = monstersInYourPocket.filter(function(ele) {
+    return ele.CP > 200
+})
 
-
+console.log(myStrongest)
 
 ////////// PROBLEM 5 //////////
 
@@ -102,12 +106,17 @@ const orders = [{ "price": 15, "tax": 0.09 }, { "price": 42, "tax": 0.07 }, { "p
 // Do not edit code above.
 
 /*
-  Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
+  Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate,
+    hint: you'll need to do some multiplication). 
+    Your answer should be an array of numbers, one total for each order.
 */
 
 // CODE HERE
+const orderTotals = orders.map(function(ele) {
+    return ele.price + ele.tax
+})
 
-
+console.log(orderTotals)
 
 ////////// PROBLEM 6 //////////
 
@@ -127,3 +136,17 @@ const purchases = [{ "owner": "Barry", "price": 103 }, { "owner": "Bob", "price"
 */
 
 // CODE HERE
+const bobsTotal = purchases.filter(function(ele) {
+    return ele.owner === "Bob"
+}).reduce(function(acc, curr) {
+    return acc + curr.price
+}, 0)
+console.log(bobsTotal)
+
+const barryTotal = purchases.filter(function(ele) {
+    return ele.owner === "Barry"
+}).reduce(function(acc, curr) {
+    return acc + curr.price
+}, 0)
+
+console.log(barryTotal)
